@@ -51,7 +51,7 @@ parser.add_argument(
 parser.add_argument(
     "--opset",
     type=int,
-    default=16,
+    default=17,
     help="The ONNX opset version to use. Must be >=11",
 )
 
@@ -138,7 +138,7 @@ def run_export(
 
     _ = onnx_model(**dummy_inputs)
 
-    output_names = ["masks", "iou_predictions", "low_res_masks"]
+    output_names = ["masks", "iou_predictions", "low_res_masks", "xtl", "ytl", "xbr", "ybr"]
 
     with warnings.catch_warnings():
         warnings.filterwarnings("ignore", category=torch.jit.TracerWarning)
